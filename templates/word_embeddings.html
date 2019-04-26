@@ -5,8 +5,8 @@
 {% endblock %}
 
 {% block content %}
-<div class="row">
-	<form method="POST" action="/word_embeddings/{{subreddit}}">
+<div class="row pt-3">
+	<form method="POST" action="/word_embeddings/{{subreddit}}" style="width:100%;">
   	<div class="input-group mb-3">
 	  <input type="text" class="form-control" placeholder="word" aria-label="word" aria-describedby="basic-addon2" name="word">
 	  <div class="input-group-append">

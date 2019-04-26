@@ -16,6 +16,6 @@ def dist(a, b):
 
 
 def nn(word, min_dist=0, topn=10):
-    candidates = MODEL.wv.most_similar(positive=[word], topn=10*topn)
+    candidates = MODEL.wv.most_similar(positive=[word], topn=20)
     return list(islice(filter(lambda t: dist(word, t[0]) >= min_dist, candidates), None, topn))
 
