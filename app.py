@@ -20,12 +20,3 @@ def word_embeddings_nn(subreddit=None):
 	neighbours = ww_nn(word)
 	return f.render_template('word_embeddings.html',subreddit=subreddit,word=word,neighbours=neighbours)
 
-@app.route('/subreddit_embeddings')
-def subreddit_embeddings():
-	return f.render_template('subreddit_embeddings.html')
-
-@app.route('/subreddit_embeddings',methods=['POST'])
-def subreddit_embeddings_nn():
-	subreddit = f.request.form['subreddit']
-	neighbours = se_nn(subreddit)
-	return f.render_template('subreddit_embeddings.html',subreddit=subreddit,neighbours=neighbours)
