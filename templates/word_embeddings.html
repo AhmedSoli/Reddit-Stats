@@ -5,12 +5,17 @@
 {% endblock %}
 
 {% block content %}
-  <form action="">
+<div class="row">
+	<form method="POST" action="/word_embeddings/{{subreddit}}">
   	<div class="input-group mb-3">
-	  <input type="text" class="form-control" placeholder="word" aria-label="word" aria-describedby="basic-addon2">
+	  <input type="text" class="form-control" placeholder="word" aria-label="word" aria-describedby="basic-addon2" name="word">
 	  <div class="input-group-append">
 	    <button class="btn btn-outline-secondary" type="button">Search</button>
 	  </div>
 	</div>
   </form>
+</div>
+<div class="row">
+	{{word}}
+</div>
 {% endblock %}
