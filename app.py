@@ -1,6 +1,5 @@
 import flask as f
 from word_embeddings import we_nn
-from subreddit_embeddings import se_nn
 
 import pandas as pd
 
