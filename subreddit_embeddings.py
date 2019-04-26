@@ -7,7 +7,7 @@ boards_sorted = pickle.load(gzip.open('subreddit_embeddings/subreddits_sorted_ac
 
 def so_nn(board):
     if board not in boards_sorted:
-        return [('subreddit does not exist',0)]
+        return ['subreddit does not exist']
     results = []
     idx = (-vectors[board]).argsort()
     i = 0
@@ -22,15 +22,15 @@ def so_nn(board):
 
 def se_nn(board,k=100,skip=[]):
     if board not in boards_sorted:
-            return [('subreddit does not exist',0)]
-    similarity = {}
+        return [('subreddit does not exist',[[0]])]
+	similarity = {}
 
 	if len(skip) == 0:
-        skip = [board]
+	    skip = [board]
 
 	for subreddit in vectors:
-	   if subreddit not in skip:
-	      similarity[subreddit] = cosine_similarity( \
-	         vectors[board].reshape(1,-1),vectors[subreddit].reshape(1,-1))
+	    if subreddit not in skip:
+	        similarity[subreddit] = cosine_similarity( \
+	            vectors[board].reshape(1,-1),vectors[subreddit].reshape(1,-1))
 
 	return sorted(similarity.items(),key = lambda x:x[1],reverse=True)[0:k]
