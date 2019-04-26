@@ -3,7 +3,7 @@
 {% block header %}
  <h3 style="font-weight:normal;text-align: center">
  	{% block title %}
-  		<span style="font-weight:bold">Subreddit embeddings inspired by this <a href="https://fivethirtyeight.com/features/dissecting-trumps-most-rabid-online-following/">article</a></span>
+  		<span style="font-weight:bold">Subreddits with the highest user overlap. Enter the name of any subreddit on Reddit with more than 25 members and get the names of the subreddits with the highest overlap between the users.</span>
 	{% endblock %}
 </h3>
 {% endblock %}
@@ -32,15 +32,13 @@
 			<tr>
 				<th>#</th>
 				<th>Subreddit</th>
-				<th>Score</th>
 			</tr>
 		</thead>
 		<tbody>
-  			{% for subreddit,score in neighbours %}
+  			{% for subreddit in neighbours %}
 			<tr>
 				<td>{{loop.index}}</td>
 				<td>{{subreddit}}</td>
-				<td>{{score[0][0]}}</td>
 			</tr>
   			{% endfor %}
 		</tbody>

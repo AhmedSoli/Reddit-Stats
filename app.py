@@ -1,6 +1,8 @@
 import flask as f
 from word_embeddings import we_nn
 from subreddit_embeddings import se_nn
+from subreddit_embeddings import so_nn
+
 
 import pandas as pd
 
@@ -28,4 +30,14 @@ def subreddit_embeddings():
 def subreddit_embeddings_nn():
 	subreddit = f.request.form['subreddit']
 	neighbours = se_nn(subreddit)
+	return f.render_template('subreddit_embeddings.html',subreddit=subreddit,neighbours=neighbours)
+
+@app.route('/subreddit_overlap')
+def subreddit_overlap():
+	return f.render_template('subreddit_overlap.html')
+
+@app.route('/subreddit_overlap',methods=['POST'])
+def subreddit_overlap_nn():
+	subreddit = f.request.form['subreddit']
+	neighbours = so_nn(subreddit)
 	return f.render_template('subreddit_embeddings.html',subreddit=subreddit,neighbours=neighbours)
