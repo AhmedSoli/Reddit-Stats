@@ -1,7 +1,10 @@
 import flask as f
 from embeddings import nn
+import pandas as pd
 
 app = f.Flask(__name__)
+str_io = io.StringIO()
+
 
 @app.route('/')
 def home():
@@ -15,4 +18,5 @@ def word_embeddings(subreddit=None):
 def nearest_neighbours(subreddit=None):
 	word = f.request.form['word']
 	neighbours = nn(word)
-	return f.render_template('word_embeddings.html',subreddit=subreddit,word=word,neighbours=neighbours)
+	neighbours = pd.Dataframe.from_dict(neighbours).to_html(buf=str_io, classes='table table-striped')
+	return f.render_template('word_embeddings.html',subreddit=subreddit,word=word,neighbours=str_io.getvalue())
