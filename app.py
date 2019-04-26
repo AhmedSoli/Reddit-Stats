@@ -1,6 +1,7 @@
 import flask as f
 from embeddings import nn
 import pandas as pd
+import io
 
 app = f.Flask(__name__)
 str_io = io.StringIO()
