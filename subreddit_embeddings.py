@@ -23,14 +23,14 @@ def so_nn(board):
 def se_nn(board,k=100,skip=[]):
     if board not in boards_sorted:
         return [('subreddit does not exist',[[0]])]
-	similarity = {}
+    similarity = {}
 
-	if len(skip) == 0:
-	    skip = [board]
+    if len(skip) == 0:
+        skip = [board]
 
-	for subreddit in vectors:
-	    if subreddit not in skip:
-	        similarity[subreddit] = cosine_similarity( \
-	            vectors[board].reshape(1,-1),vectors[subreddit].reshape(1,-1))
+    for subreddit in vectors:
+        if subreddit not in skip:
+            similarity[subreddit] = cosine_similarity( \
+                vectors[board].reshape(1,-1),vectors[subreddit].reshape(1,-1))
 
-	return sorted(similarity.items(),key = lambda x:x[1],reverse=True)[0:k]
+    return sorted(similarity.items(),key = lambda x:x[1],reverse=True)[0:k]
