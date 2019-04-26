@@ -1,7 +1,12 @@
 {% extends 'template.html' %}
 
 {% block header %}
-  <h1>{% block title %}r/{{subreddit}}{% endblock %}</h1>
+ <h3 style="font-weight:normal;text-align: center">
+ 	{% block title %}
+  		<span style="font-weight:bold">r/</span>
+  		{{subreddit}}
+	{% endblock %}
+</h3>
 {% endblock %}
 
 {% block content %}
