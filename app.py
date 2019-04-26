@@ -16,6 +16,6 @@ def word_embeddings(subreddit=None):
 @app.route('/word_embeddings/<subreddit>',methods=['POST'])
 def word_embeddings_nn(subreddit=None):
 	word = f.request.form['word']
-	neighbours = ww_nn(word)
+	neighbours = we_nn(word)
 	return f.render_template('word_embeddings.html',subreddit=subreddit,word=word,neighbours=neighbours)
 
