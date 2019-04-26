@@ -4,7 +4,7 @@ import gzip
 
 vectors = pickle.load(gzip.open('subreddit_embeddings/0to500.pickle.gz',"rb"))
 
-def similar_vectors(board,k=100,skip=[]):
+def se_nn(board,k=100,skip=[]):
 	similarity = {}
 
 	if len(skip) == 0:
