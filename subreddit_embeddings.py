@@ -1,5 +1,7 @@
 import pickle
 import gzip
+from sklearn.metrics.pairwise import cosine_similarity
+
 
 
 vectors = pickle.load(gzip.open('subreddit_embeddings/0to500.pickle.gz',"rb"))
