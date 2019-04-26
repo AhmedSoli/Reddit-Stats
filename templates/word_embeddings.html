@@ -37,9 +37,11 @@
 			</tr>
 		</thead>
 		<tbody>
-  			{% for res in neighbours %}
+  			{% for word,score in neighbours %}
 			<tr>
-				<td>{{res}}</td>
+				<td>{{loop.counter}}</td>
+				<td>{{word}}</td>
+				<td>{{score}}</td>
 			</tr>
   			{% endfor %}
 		</tbody>
