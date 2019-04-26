@@ -1,4 +1,5 @@
 import flask as f
+from embeddings import nn
 
 app = f.Flask(__name__)
 
@@ -13,4 +14,5 @@ def word_embeddings(subreddit=None):
 @app.route('/word_embeddings/<subreddit>',methods=['POST'])
 def nearest_neighbours(subreddit=None):
 	word = f.request.form['word']
-	return f.render_template('word_embeddings.html',subreddit=subreddit,word=word)
+	neighbours = nn(word)
+	return f.render_template('word_embeddings.html',subreddit=subreddit,word=word,neighbours=neighbours)
