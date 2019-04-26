@@ -46,7 +46,7 @@ def subreddit_overlap_nn():
 @app.route('/word_clouds/<subreddit>')
 def word_clouds(subreddit=None):
 	images = []
-	for file in os.listdir("word_clouds"):
+	for file in os.listdir("static/word_clouds"):
 		if file.split('-')[0] == subreddit:
 			images.append(file)
 	return f.render_template('word_clouds.html',subreddit=subreddit,images=images)
