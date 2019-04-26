@@ -21,9 +21,27 @@
   </form>
 </div>
 <div class="row">
-	{{word}}
+	<div class="alert alert-success" role="alert" style="width: 500px;text-align: center;margin-left: auto;margin-right: auto;">
+	Result for 
+		<span style="font-weight: bold;color: black;text-decoration: underline;">{{word}}<span>
+	</div>
 </div>
 <div class="row">
-	{{neighbours|safe}}
+	<table class="table table-hover" style="font-size:small;">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Word</th>
+				<th>Score</th>
+			</tr>
+		</thead>
+		<tbody>
+  			{% for res in neighbours %}
+			<tr>
+				<td>{{res}}</td>
+			</tr>
+  			{% endfor %}
+		</tbody>
+	</table>
 </div>
 {% endblock %}
