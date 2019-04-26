@@ -1,5 +1,5 @@
 import flask as f
-from embeddings import nn
+from word_embeddings import nn
 import pandas as pd
 import io
 
