@@ -1,4 +1,5 @@
 import flask as f
+import os
 from word_embeddings import we_nn
 from subreddit_embeddings import se_nn
 from subreddit_embeddings import so_nn
@@ -41,3 +42,11 @@ def subreddit_overlap_nn():
 	subreddit = f.request.form['subreddit']
 	neighbours = so_nn(subreddit)
 	return f.render_template('subreddit_embeddings.html',subreddit=subreddit,neighbours=neighbours)
+
+@app.route('/word_clouds/<subreddit>')
+def word_clouds(subreddit=None):
+	images = []
+	for file in os.listdir("word_clouds"):
+		if file.split('-')[0] == subreddit:
+			images.append(file)
+	return f.render_template('word_clouds.html',subreddit=subreddit,images=images)
