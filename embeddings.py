@@ -8,7 +8,7 @@ from gensim.models import FastText as ft
 # Local modules
 
 # Globals and constants variables.
-MODEL = ft.load_fasttext_format('bin/politics.bin')
+MODEL = ft.load_fasttext_format('bin/Conservative.bin')
 
 
 def dist(a, b):
