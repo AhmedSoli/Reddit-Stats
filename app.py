@@ -4,8 +4,6 @@ import pandas as pd
 import io
 
 app = f.Flask(__name__)
-str_io = io.StringIO()
-
 
 @app.route('/')
 def home():
@@ -17,6 +15,7 @@ def word_embeddings(subreddit=None):
 
 @app.route('/word_embeddings/<subreddit>',methods=['POST'])
 def nearest_neighbours(subreddit=None):
+	str_io = io.StringIO()
 	word = f.request.form['word']
 	neighbours = nn(word)
 	neighbours = pd.DataFrame.from_dict(neighbours).to_html(buf=str_io, classes='table table-striped')

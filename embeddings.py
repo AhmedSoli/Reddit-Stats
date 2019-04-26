@@ -15,7 +15,7 @@ def dist(a, b):
     return edit_distance(a, b) / max(len(a), len(b))
 
 
-def nn(word, min_dist=0, topn=10):
-    candidates = MODEL.wv.most_similar(positive=[word], topn=20)
+def nn(word, min_dist=0, topn=100):
+    candidates = MODEL.wv.most_similar(positive=[word], topn=topn)
     return list(islice(filter(lambda t: dist(word, t[0]) >= min_dist, candidates), None, topn))
 
