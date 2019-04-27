@@ -8,8 +8,10 @@ from gensim.models import FastText as ft
 # Local modules
 
 # Globals and constants variables.
-MODEL = ft.load_fasttext_format('word_embeddings/Conservative.bin')
-
+models = {}
+for subreddit in os.listdir("word_embeddings"):
+	if 'bin' in subreddit:
+		model[subreddit.replace('.bin','')] =  ft.load_fasttext_format('word_embeddings/' + subreddit)
 
 def dist(a, b):
     return edit_distance(a, b) / max(len(a), len(b))

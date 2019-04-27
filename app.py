@@ -41,7 +41,7 @@ def subreddit_overlap():
 def subreddit_overlap_nn():
 	subreddit = f.request.form['subreddit']
 	neighbours = so_nn(subreddit)
-	return f.render_template('subreddit_embeddings.html',subreddit=subreddit,neighbours=neighbours)
+	return f.render_template('subreddit_overlap.html',subreddit=subreddit,neighbours=neighbours)
 
 @app.route('/word_clouds/<subreddit>')
 def word_clouds(subreddit=None):
